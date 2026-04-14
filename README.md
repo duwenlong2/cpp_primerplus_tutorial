@@ -37,4 +37,123 @@
     ```
 
 ---
+
+  ## 2. 推送代码到 GitHub 的流程
+
+  本项目已经配置为使用 SSH 地址推送到 GitHub。以后建议固定按下面的顺序操作。
+
+  ### 2.1 先查看当前状态
+
+  在仓库根目录执行：
+
+  ```powershell
+  git status -sb
+  ```
+
+  如果看到类似下面的结果：
+
+  ```powershell
+  ## main...origin/main [ahead 1]
+  ```
+
+  说明本地有 1 个提交还没有推送到远端。
+
+  ### 2.2 添加本次修改
+
+  如果只是提交当前已经修改过的文件：
+
+  ```powershell
+  git add .
+  ```
+
+  如果只想提交某一个文件，也可以单独添加：
+
+  ```powershell
+  git add README.md
+  ```
+
+  然后提交：
+
+  ```powershell
+  git commit -m "填写本次修改说明"
+  ```
+
+  例如：
+
+  ```powershell
+  git commit -m "更新第一章学习代码"
+  ```
+
+  ### 2.3 推送到远端仓库
+
+  执行：
+
+  ```powershell
+  git push origin main
+  ```
+
+  推送成功后，再执行一次：
+
+  ```powershell
+  git status -sb
+  ```
+
+  如果结果变成：
+
+  ```powershell
+  ## main...origin/main
+  ```
+
+  说明本地和远端已经同步。
+
+  ### 2.4 如果推送时报 SSH key 错误
+
+  先不要急着重新生成 key，先做这两个检查。
+
+  检查 1：测试 GitHub SSH 认证
+
+  ```powershell
+  ssh -T git@github.com
+  ```
+
+  如果看到类似下面的结果，说明 key 本身是正常的：
+
+  ```powershell
+  Hi duwenlong2! You've successfully authenticated, but GitHub does not provide shell access.
+  ```
+
+  检查 2：测试当前仓库远端是否可访问
+
+  ```powershell
+  git ls-remote origin
+  ```
+
+  如果能看到远端分支信息，说明当前仓库的 SSH 访问也是正常的。
+
+  这两个检查都通过后，再执行：
+
+  ```powershell
+  git push origin main
+  ```
+
+  ### 2.5 建议固定使用的完整命令顺序
+
+  以后推送时，按下面顺序执行即可：
+
+  ```powershell
+  git status -sb
+  git add .
+  git commit -m "本次修改说明"
+  git push origin main
+  git status -sb
+  ```
+
+  ### 2.6 常见问题
+
+  - 如果 `git status -sb` 里出现 `.exe` 文件，一般不建议提交编译产物。
+  - 如果 `git commit` 提示没有可提交内容，说明你可能还没有修改文件，或者忘了 `git add`。
+  - 如果 `git push origin main` 失败，先执行 `ssh -T git@github.com` 和 `git ls-remote origin`，确认是不是认证问题。
+
+  ---
+
 ## 基础准备就这么多。去各个目录下开始学习。

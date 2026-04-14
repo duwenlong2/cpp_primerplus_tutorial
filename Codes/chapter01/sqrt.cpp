@@ -15,6 +15,8 @@ int main()
     cout<<"side as"<<side<<"to the side pow 3  as "<<answer<<endl; 
     int number= rand(); //生成一个随机整数，并将其存储在变量number中
     cout<< "here is a random number as : "<<number<<endl; //输出生成的随机数，并换行
+ double result= std::pow(5.0,8.0); 
+ 
     std::cin.get();//等待用户按下回车键，以便在程序结束前查看输出结果
      std::cin.get();
     return 0;

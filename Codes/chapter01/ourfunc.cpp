@@ -1,6 +1,7 @@
 //ourfunc.cpp -- 使用我们自己的函数
 #include <iostream>
 void simon(int); //函数原型，声明了一个名为simon的函数，接受一个整数参数并返回void类型（无返回值）
+
 int main()
 {
     using namespace std;
