@@ -5,6 +5,7 @@
 int stonetolb(int);
 void printTest();
 int prune(void);
+void getCurrentSystemSize();
 int main()
 {
 prune();
@@ -30,9 +31,13 @@ int stonetolb(int sts)
   return pounds;
 }
 
+
 int prune(void)
 {
-return 0;  
+  int age=10;
+ int agesize= sizeof(age);
+std::cout<<"agesize count="<<agesize<<endl;
+return 0;
 }
 //4
 void printTest()
