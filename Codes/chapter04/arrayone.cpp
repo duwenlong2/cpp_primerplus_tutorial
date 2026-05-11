@@ -39,20 +39,10 @@ int main()
     size_t num_elements = sizeof things / sizeof(short);
     num_elements = std::size(things);
     char fish[] = "Bubbles";
- 
 
     cout << "The number of elements in things is " << num_elements << endl;
 
-    // Keep these arrays in scope to demonstrate declarations used in this sample. 
-    //告诉编译器：这些变量我故意不再使用，请不要报未使用警告 
-    (void)hotelTips;
-    (void)totals;
-    (void)earnings;
-    (void)counts;
-    (void)balances;
-    (void)dog;
-    (void)cat;
-    (void)fish;
+
 
     cin.get();
     cin.get();
